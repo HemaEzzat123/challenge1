@@ -1,5 +1,5 @@
 import os
-from flask import Flask, render_template, jsonify
+from flask import Flask, render_template, jsonify, send_from_directory
 
 app = Flask(__name__)
 
@@ -17,13 +17,14 @@ FLAG = os.getenv("FLAG", "encryptCTF{comments_&_indentations_makes_johnny_a_good
 
 @app.route('/')
 def index():
-	return render_template('../templates/index.html')
+    return render_template('index.html')  # Fixed path - no ../
+
 
 @app.route('/encryptCTF', methods=["GET"])
 def getflag():
-	    return jsonify({
-	        'flag': FLAG
-	    })
-	
+    return jsonify({
+        'flag': FLAG
+    })
+    
 if __name__ == '__main__':
     app.run(debug=False)
