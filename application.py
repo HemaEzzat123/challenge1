@@ -13,14 +13,14 @@ Learn about virtualenv here:
 https://www.youtube.com/watch?v=N5vscPTWKOk&list=PL-osiE80TeTt66h8cVpmbayBKlMTuS55y&index=7
 '''
 
-FLAG = os.getenv("FLAG", "encryptCTF{comments_&_indentations_makes_johnny_a_good_programme}")
+FLAG = os.getenv("FLAG", "AzCTF{comments_&_indentations_makes_johnny_a_good_programme}")
 
 @app.route('/')
 def index():
     return render_template('index.html')  # Fixed path - no ../
 
 
-@app.route('/encryptCTF', methods=["GET"])
+@app.route('/AzCTF', methods=["GET"])
 def getflag():
     return jsonify({
         'flag': FLAG
